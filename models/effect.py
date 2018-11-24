@@ -22,3 +22,14 @@ class Effect(Node):
 
         influence = Influence(influencing_node, weight)
         self.__influences.append(influence)
+
+    def compute_new_value(self):
+        """
+        compute new value based on all influences and store it in new_value
+        returns nothing
+        """
+
+        new_value = 0
+        for i in self.influences:
+            new_value += i.influencer.value * i.weight
+
