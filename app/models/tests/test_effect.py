@@ -1,6 +1,4 @@
-import sys
-sys.path.append('.')
-from models.effect import Effect
+from app.models.effect import Effect
 
 class TestEffect:
 
@@ -27,5 +25,12 @@ class TestEffect:
         assert effect1.influences[0].influencer == effect2
 
     def test_compute_new_value(self):
-        (effect1, effect2) = self.connected_effect()
-        assert effect1.new_value == 5
+        (effect1, _) = self.connected_effect()
+        effect1.compute_new_value()
+        assert effect1.new_value == .52
+
+    def test_flip_new_value(self):
+        (effect1, _) = self.connected_effect()
+        effect1.compute_new_value()
+        effect1.flip_value()
+        assert effect1.value == .52

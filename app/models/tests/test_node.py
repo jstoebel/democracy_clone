@@ -1,6 +1,4 @@
-import sys
-sys.path.append('.')
-from models.node import Node
+from app.models.node import Node
 
 class TestNode:
 

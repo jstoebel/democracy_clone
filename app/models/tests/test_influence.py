@@ -1,7 +1,5 @@
-import sys
-sys.path.append('.')
-from models.influence import Influence
-from models.effect import Effect
+from app.models.influence import Influence
+from app.models.effect import Effect
 
 class TestInfluence:
 

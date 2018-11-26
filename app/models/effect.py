@@ -1,7 +1,6 @@
-import sys
-sys.path.append('.')
-from models.node import Node
-from models.influence import Influence
+from app.models.node import Node
+from app.models.influence import Influence
+
 class Effect(Node):
 
     def __init__(self, name, value):
@@ -29,7 +28,11 @@ class Effect(Node):
         returns nothing
         """
 
-        new_value = 0
+        new_value = self.value
         for i in self.influences:
             new_value += i.influencer.value * i.weight
+        self.new_value = new_value
 
+    def flip_value(self):
+        self.value = self.new_value
+        self.value
